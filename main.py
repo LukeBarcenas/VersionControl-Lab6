@@ -17,6 +17,20 @@ def encoder(password):
     encoded_pass = "".join([str(i) for i in encoded_pass])
     return encoded_pass
 
+def decode(num):
+    en = ""
+    for i in num:
+        if 3 <= int(i) < 10:
+            p = int(i) - 3
+            en = en + str(p)
+        if int(i) == 2:
+            en = en + "9"
+        if int(i) == 1:
+            en = en + "8"
+        if int(i) == 0:
+            en = en + "7"
+    return en
+
 
 if __name__ == "__main__":
     user_input = 0
@@ -37,7 +51,8 @@ if __name__ == "__main__":
 
         # if the user types '2', run the decoder
         elif user_input == "2":
-            pass  # call to decoder function goes here
+            y = decode(encoded_password)
+            print(f'The encoded password is {encoded_password}, and the original password is {y}.')
 
         # if the user types '3', end the program
         elif user_input == "3":
